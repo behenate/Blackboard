@@ -1,0 +1,11 @@
+p_x1, p_x2, p_y1, p_y2 = x1, x2, y1, y2
+cx = pos[0] / d[0]
+cy = pos[1] / d[1]
+dx = d[0] - (d[0] * zoom)
+dy = d[1] - d[1] * zoom
+x1 = dx * cx
+x2 = d[0] - dx * (1 - cx)
+y1 = d[1] - dy * (1 - cy)
+y2 = dy * cy
+diff_x, diff_y = (p_x1 + p_x2) / 2 - (x1 + x2) / 2, (p_y1 + p_y2) / 2 - (y1 + y2) / 2
+translation = (translation[0] - diff_x, translation[1] + diff_y, translation[2])
